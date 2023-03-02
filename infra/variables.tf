@@ -1,8 +1,10 @@
-variable service_name {
+variable "service_name" {
+  description = "Openstack tenant Id"
   type        = string
 }
 
-variable number_of_clusters {
-  type    = number
-  default = 2
+variable "number_of_clusters" {
+  description = "Desired clusters number"
+  type        = number
+  default     = 2
 }
