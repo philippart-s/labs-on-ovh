@@ -6,5 +6,5 @@ variable "service_name" {
 variable "number_of_clusters" {
   description = "Desired clusters number"
   type        = number
-  default     = 2
+  default     = 1
 }

@@ -31,3 +31,4 @@ override.tf.json
 .pre-commit-config.yaml
 .tflint.hcl
 deps.sh
+polytech-*.yml
