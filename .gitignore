@@ -31,3 +31,6 @@ override.tf.json
 .pre-commit-config.yaml
 .tflint.hcl
 deps.sh
+.vscode/
+infra/polytech-*.yml
+cli/school-env/src/main/resources/kubeconfigs/polytech/*
