@@ -32,5 +32,5 @@ override.tf.json
 .tflint.hcl
 deps.sh
 .vscode/
-infra/polytech-*.yml
-cli/school-env/src/main/resources/kubeconfigs/polytech/*
+polytech-*.yml
+
