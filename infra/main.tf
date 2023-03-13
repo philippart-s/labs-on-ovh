@@ -18,3 +18,22 @@ resource "ovh_cloud_project_kube_nodepool" "node_pool" {
   max_nodes     = 3
   min_nodes     = 3
 }
+
+resource "local_file" "kubeconfig" {
+  count    = var.number_of_clusters
+  content  = ovh_cloud_project_kube.my_kube_cluster[count.index].kubeconfig
+  filename = "polytech-${count.index + 1}.yml"
+
+  // Prometheus operator deployment
+  provisioner "local-exec" {
+    command = <<EOT
+              helm install prometheus-community/kube-prometheus-stack \
+                            --kubeconfig polytech-${count.index + 1}.yml \
+                            --create-namespace --namespace prometheus \
+                            --generate-name \
+                            --set prometheus.service.type=LoadBalancer \
+                            --set prometheus.prometheusSpec.serviceMonitorSelectorNilUsesHelmValues=false \
+                            --set grafana.enabled=false
+              EOT
+  }
+}
