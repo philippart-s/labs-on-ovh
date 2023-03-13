@@ -17,6 +17,6 @@ public class List implements Runnable {
   
   @Override
   public void run() {
-    grafanaAPIService.listRules(GROUP_UID, FOLDER_NAME);
+    _LOG.debug("" + grafanaAPIService.listRules(GROUP_UID, FOLDER_NAME));
   }
 }
