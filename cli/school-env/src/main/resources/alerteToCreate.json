@@ -19,7 +19,7 @@
 					"uid": "DATASOURCE_ID"
 				},
 				"editorMode": "builder",
-				"expr": "cluster:node_cpu:sum_rate5m > 0.3",
+				"expr": "cluster:node_cpu:ratio_rate5m > 0.3",
 				"hide": false,
 				"intervalMs": 1000,
 				"legendFormat": "__auto",
