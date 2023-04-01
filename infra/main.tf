@@ -1,7 +1,7 @@
 resource "ovh_cloud_project_kube" "my_kube_cluster" {
   count        = var.number_of_clusters
   service_name = var.service_name
-  name         = "${var.cluster_name}-${count.index + 1}"
+  name         = "${var.cluster_name}-${count.index}"
   region       = var.ovh_region
   version      = var.k8s_version
 }
