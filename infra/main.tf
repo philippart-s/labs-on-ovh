@@ -20,11 +20,11 @@ resource "ovh_cloud_project_kube_nodepool" "node_pool" {
   min_nodes     = var.ovh_k8s_min_nodes
 }
 
-/*resource "local_file" "kubeconfig" {
+resource "local_file" "kubeconfig" {
   count    = var.number_of_clusters
   content  = ovh_cloud_project_kube.my_kube_cluster[count.index].kubeconfig
   filename = "${var.cluster_name}-${count.index}.yml"
-
+/*
   // Prometheus operator deployment
   provisioner "local-exec" {
     command = <<EOT
@@ -37,5 +37,5 @@ resource "ovh_cloud_project_kube_nodepool" "node_pool" {
                             --set grafana.enabled=false
               EOT
   }
-}
 */
+}
