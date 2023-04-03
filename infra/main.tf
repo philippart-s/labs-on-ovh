@@ -29,7 +29,7 @@ resource "ovh_cloud_project_kube_nodepool" "node_pool" {
   provisioner "local-exec" {
     command = <<EOT
               helm install prometheus-community/kube-prometheus-stack \
-                            --kubeconfig polytech-${count.index}.yml \
+                            --kubeconfig ${var.cluster_name}-${count.index}.yml \
                             --create-namespace --namespace prometheus \
                             --generate-name \
                             --set prometheus.service.type=LoadBalancer \
